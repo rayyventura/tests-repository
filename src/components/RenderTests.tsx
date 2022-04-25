@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 export default function RenderTests({ display, test, reference }: any) {
@@ -7,9 +7,9 @@ export default function RenderTests({ display, test, reference }: any) {
       {reference ? (
         <>
           <p className="title">{test.category.name}</p>
-          <p>
+          <a href={test.pdfUrl} target="_blank">
             {test.name} ({reference})
-          </p>
+          </a>
         </>
       ) : (
         <p>Não há provas de nenhuma categoria para essa disciplina </p>
@@ -32,9 +32,16 @@ const Container = styled.div<{ display: boolean }>`
     font-size: 14px;
     margin-bottom: 5px;
   }
-  p {
+  a {
     color: #878787;
     font-size: 12px;
     font-family: "Poppins";
+
+    &:hover {
+      color: #1976d2;
+    }
+    &:visited {
+      color: #ad0aced3;
+    }
   }
 `;

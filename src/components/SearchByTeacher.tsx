@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { iosMinusEmpty } from "react-icons-kit/ionicons/iosMinusEmpty";
 import { iosPlusEmpty } from "react-icons-kit/ionicons/iosPlusEmpty";
 import Icon from "react-icons-kit";
-import RenderTests from "./RenderTestsByDiscipline";
+import RenderTests from "./RenderTests";
 
 export default function SearchByTeacher({ data }: any) {
   const [showTests, setShowTests] = useState(false);

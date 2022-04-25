@@ -4,7 +4,7 @@ import { iosMinusEmpty } from "react-icons-kit/ionicons/iosMinusEmpty";
 import { iosPlusEmpty } from "react-icons-kit/ionicons/iosPlusEmpty";
 import Icon from "react-icons-kit";
 import RenderDisciplines from "./RenderDisciplines";
-import RenderTests from "./RenderTestsByDiscipline";
+import RenderTests from "./RenderTests";
 
 export default function SearchByDiscipline({ selectDisciplines, data }: any) {
   const [showDisciplines, setShowDisciplines] = useState(false);
