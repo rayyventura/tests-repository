@@ -1,4 +1,4 @@
-# Linktr ⛓️
+# RepoProvas 📝
 ## Share and search for tests!
 
 ### :computer: Tech used
@@ -6,7 +6,10 @@
 	<img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white"/>
 	<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
 	<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-	<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>	
+	<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
+	<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>	
+	
+	
 </p>
 
 ### Also nicely experienced on :telephone_receiver:
@@ -38,7 +41,7 @@ Share and search for tests by Discipline name separated by terms, or also search
 </p>
 <p>Not needed but recommended: <a href="https://code.visualstudio.com/">VSCode</a></p>
 
-#### In order to use all functions of this app, you also need to install the [backend API](https://github.com/blarth/linktr-api)
+#### In order to use all functions of this app, you also need to install the [backend API](https://github.com/rayyventura/tests-repository-api)
 
 Use a terminal interface such as bash or zsh, and enter the following:
 ```bash
