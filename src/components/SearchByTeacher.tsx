@@ -7,7 +7,7 @@ import RenderTests from "./RenderTests";
 
 export default function SearchByTeacher({ data }: any) {
   const [showTests, setShowTests] = useState(false);
-
+  console.log(data.teacherDiscipline[0]);
   return (
     <Container>
       <UpperContainer>
@@ -33,12 +33,10 @@ export default function SearchByTeacher({ data }: any) {
             );
           })}
         {!data.teacherDiscipline[0] && (
-          <RenderTests
-            display={showTests}
-            test={false}
-            key={data.id}
-            teacher="dina"
-          />
+          <RenderTests display={showTests} test={false} key={data.id} />
+        )}
+        {data.teacherDiscipline[0] && !data.teacherDiscipline[0].tests[0] && (
+          <RenderTests display={showTests} test={false} key={data.id} />
         )}
       </InnerContainer>
     </Container>

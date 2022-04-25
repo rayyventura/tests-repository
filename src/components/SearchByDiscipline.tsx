@@ -58,12 +58,7 @@ export default function SearchByDiscipline({ selectDisciplines, data }: any) {
             }
           )}
         {!data.disciplines[0].teacherDiscipline[0] && (
-          <RenderTests
-            display={showTests}
-            test={false}
-            key={data.id}
-            reference={teacherName}
-          />
+          <RenderTests display={showTests} test={false} key={data.id} />
         )}
         {data.disciplines[0].teacherDiscipline[0] &&
           !data.disciplines[0].teacherDiscipline[0].tests[0] && (
