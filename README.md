@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# Linktr ⛓️
+## Share and searcht tests!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### :computer: Tech used
+<p>
+	<img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white"/>
+	<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
+	<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+	<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>	
+</p>
 
-## Available Scripts
+### Also nicely experienced on :telephone_receiver:
+<p>
+	<img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"/>
+	<img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" />
+</p>
 
-In the project directory, you can run:
+## Overview
+A test sharing platform where students can share  tests to help each other
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### ```Login, Signup & Logout```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A login & signup screen, your session is remembered when you login so you don't have to type your credentials everytime. Press the Logout button on the upper bar, right corner, drop down arrow to logout.
 
-### `npm test`
+### ```Post, access and searcht for tests```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Share and search for tests by Discipline name separated by terms, or also search by teacher name
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation 🛠️
+### Make sure you have the following tools installed before you begin:
+<p>
+	<a href="https://git-scm.com/"><img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"/></a>
+	<a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/></a>
+	<a href="https://www.npmjs.com/package/npm"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/></a>
+</p>
+<p>Not needed but recommended: <a href="https://code.visualstudio.com/">VSCode</a></p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### In order to use all functions of this app, you also need to install the [backend API](https://github.com/blarth/linktr-api)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Use a terminal interface such as bash or zsh, and enter the following:
+```bash
+#download
+gh repo clone blarth/linktr-react
 
-### `npm run eject`
+#access the folder you downloaded it to
+cd linktr-react
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#install dependencies
+npm i
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app will run locally and you must configure a ```.env``` file with a port of your choosing. The default one is 5000.
+## Running
+```bash
+#you can run the development build with
+npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#or production build it with
+npm build
+```
