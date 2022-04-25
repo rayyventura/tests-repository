@@ -32,7 +32,6 @@ export default function SignIn() {
   useEffect(() => {
     if (auth) {
       navigate("/home");
-      console.log(auth);
     } //eslint-disable-next-line
   }, [auth]);
 

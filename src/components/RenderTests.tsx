@@ -37,11 +37,11 @@ const Container = styled.div<{ display: boolean }>`
     font-size: 12px;
     font-family: "Poppins";
 
-    &:hover {
-      color: #1976d2;
-    }
     &:visited {
       color: #ad0aced3;
+    }
+    &:hover {
+      color: #1976d2;
     }
   }
 `;

@@ -30,7 +30,6 @@ export default function SignUp() {
 
   function handleChange({ target }: { target: any }) {
     setFormData({ ...formData, [target.name]: target.value });
-    console.log(formData);
   }
 
   function toggleHidePassword() {
