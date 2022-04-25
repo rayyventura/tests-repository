@@ -65,7 +65,7 @@ export default function SignUp() {
       return;
     }
     try {
-      api.createUser(formData);
+      api.createUser({ email: formData.email, password: formData.password });
       navigate("/");
     } catch (err) {
       console.log(err);
