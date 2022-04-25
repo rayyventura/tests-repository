@@ -10,6 +10,7 @@ export default function SearchByDiscipline({ selectDisciplines, data }: any) {
   const [showDisciplines, setShowDisciplines] = useState(false);
   const [showTests, setShowTests] = useState(false);
   const teacherName = data.disciplines[0].teacherDiscipline[0]?.teacher.name;
+
   function toggleShowDisciplines() {
     setShowDisciplines(!showDisciplines);
     showDisciplines && setShowTests(false);
@@ -44,16 +45,18 @@ export default function SearchByDiscipline({ selectDisciplines, data }: any) {
       </LowerContainer>
       <InnerContainer display={showTests}>
         {data.disciplines[0].teacherDiscipline[0] &&
-          data.disciplines[0].teacherDiscipline[0].tests.map((test: any) => {
-            return (
-              <RenderTests
-                display={showTests}
-                test={test}
-                key={test.id}
-                reference={teacherName}
-              />
-            );
-          })}
+          data.disciplines[0].teacherDiscipline[0].tests.map(
+            (test: any, i: number) => {
+              return (
+                <RenderTests
+                  display={showTests}
+                  test={test}
+                  key={i}
+                  reference={teacherName}
+                />
+              );
+            }
+          )}
         {!data.disciplines[0].teacherDiscipline[0] && (
           <RenderTests
             display={showTests}
@@ -62,6 +65,15 @@ export default function SearchByDiscipline({ selectDisciplines, data }: any) {
             reference={teacherName}
           />
         )}
+        {data.disciplines[0].teacherDiscipline[0] &&
+          !data.disciplines[0].teacherDiscipline[0].tests[0] && (
+            <RenderTests
+              display={showTests}
+              test={false}
+              key={data.id}
+              reference={teacherName}
+            />
+          )}
       </InnerContainer>
     </Container>
   );

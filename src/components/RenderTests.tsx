@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function RenderTests({ display, test, reference }: any) {
   return (
     <Container display={display}>
-      {reference ? (
+      {reference && test ? (
         <>
           <p className="title">{test.category.name}</p>
           <a href={test.pdfUrl} target="_blank">
@@ -12,7 +12,9 @@ export default function RenderTests({ display, test, reference }: any) {
           </a>
         </>
       ) : (
-        <p>Não há provas de nenhuma categoria para essa disciplina </p>
+        <p className="warn">
+          Não há provas de nenhuma categoria para essa disciplina{" "}
+        </p>
       )}
     </Container>
   );
@@ -43,5 +45,10 @@ const Container = styled.div<{ display: boolean }>`
     &:hover {
       color: #1976d2;
     }
+  }
+  .warn {
+    color: #222629c0;
+    text-align: center;
+    word-wrap: break-word;
   }
 `;
