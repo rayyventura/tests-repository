@@ -1,7 +1,7 @@
 # RepoProvas 📝
 ## Share and search for tests!
 
-**Site published at**:https://testsrepository.vercel.app/home
+**Site published at**:https://testsrepository.vercel.app
 
 ### :computer: Tech used
 <p>
