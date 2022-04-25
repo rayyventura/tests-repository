@@ -48,15 +48,20 @@ const Form = styled.form`
   font-family: "Poppins", "sans-serif";
 `;
 
-const InputField = styled.div`
+const InputField = styled.div<{ search: string }>`
   padding: 12px;
   margin-bottom: 16px;
   width: 464px;
-  height: 56px;
 
-  border: 1px solid rgba(0, 0, 0, 0.23);
+  padding-left: ${(props) => (props.search === "form" ? "0" : "20px")};
+
+  border: ${(props) =>
+    props.search === "form" ? "1px solid rgba(0, 0, 0, 0.23)" : "0"};
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: ${(props) => (props.search === "form" ? "4px" : "25px")};
+
+  box-shadow: ${(props) =>
+    props.search === "form" ? "0" : "0px 1px 2px rgba(0, 0, 0, 0.3)"};
 
   display: flex;
   justify-content: space-between;
@@ -77,9 +82,11 @@ const Input = styled.input`
 
   color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
 
   background-color: white;
+
+  font-family: "Poppins";
 
   cursor: text;
 `;

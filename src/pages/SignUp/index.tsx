@@ -77,7 +77,7 @@ export default function SignUp() {
       <Title> Cadastro </Title>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <UpperContainer>
-          <InputField>
+          <InputField search="form">
             <Input
               type="email"
               placeholder="Email"
@@ -87,7 +87,7 @@ export default function SignUp() {
               value={formData.email}
             />
           </InputField>
-          <InputField>
+          <InputField search="form">
             <Input
               type={hidePassword ? "password" : "text"}
               placeholder="Senha"
@@ -104,7 +104,7 @@ export default function SignUp() {
               onClick={() => toggleHidePassword()}
             />
           </InputField>
-          <InputField>
+          <InputField search="form">
             <Input
               type={hidePasswordConfirm ? "password" : "text"}
               placeholder="Confirme sua senha"
