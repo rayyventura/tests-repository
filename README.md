@@ -1,5 +1,5 @@
 # Linktr ⛓️
-## Share and searcht tests!
+## Share and search tests!
 
 ### :computer: Tech used
 <p>
