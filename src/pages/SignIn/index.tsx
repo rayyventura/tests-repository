@@ -64,6 +64,12 @@ export default function SignIn() {
     } catch (err) {
       console.log(err);
       setLoading(false);
+      Swal.fire({
+        text: "E-mail ou senha inválidos",
+        background: "#d66767",
+        confirmButtonColor: "#9f9adb",
+        color: "#fff",
+      });
     }
   }
 

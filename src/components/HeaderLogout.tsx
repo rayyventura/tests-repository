@@ -9,7 +9,7 @@ export default function HeaderLogout() {
   const navigate = useNavigate();
   function signOut() {
     localStorage.removeItem("auth");
-    navigate("/");
+    window.location.reload();
   }
 
   return (
@@ -35,12 +35,18 @@ const Container = styled.header`
   width: 100%;
 
   padding: 40px;
-
   img {
     width: 200px;
-    cursor: pointer;
   }
+
   .icon {
     cursor: pointer;
+  }
+  @media (max-width: 700px) {
+    padding: 9px;
+    margin-bottom: 12px;
+    img {
+      width: 160px;
+    }
   }
 `;

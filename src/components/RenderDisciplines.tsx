@@ -41,4 +41,9 @@ const Container = styled.div`
   .icon {
     cursor: pointer;
   }
+  @media (max-width: 700px) {
+    width: 100vw;
+    justify-content: space-between;
+    padding: 5px 35px;
+  }
 `;

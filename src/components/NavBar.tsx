@@ -111,4 +111,11 @@ const Container = styled.nav<{
     background-color: ${(props) => (props.add ? "#1976d2" : "white")};
     color: ${(props) => (props.add ? "white" : "#1976d2")};
   }
+  @media (max-width: 700px) {
+    width: 100%;
+    div {
+      width: 96px;
+      height: 28px;
+    }
+  }
 `;

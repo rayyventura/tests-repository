@@ -10,6 +10,7 @@ import NavBar from "../../components/NavBar";
 import SearchByTeacher from "../../components/SearchByTeacher";
 import useAuth from "../../hooks/useAuth";
 import * as api from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [selectDisciplines, setSelectDisciplines] = useState(true);
@@ -18,9 +19,13 @@ export default function Home() {
   const [testsDisciplines, setTestsDisciplines] = useState<any>();
   const [testsTeachers, setTestsTeachers] = useState<any>();
   const { auth } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
+    if (!auth) {
+      navigate("/");
+    }
   }, []);
 
   async function getData() {

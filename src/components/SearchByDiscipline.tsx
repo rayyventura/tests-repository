@@ -78,6 +78,9 @@ const Container = styled.div`
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 
   margin-bottom: 16px;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const UpperContainer = styled.div`
@@ -95,6 +98,9 @@ const UpperContainer = styled.div`
   }
   .icon {
     cursor: pointer;
+  }
+  @media (max-width: 700px) {
+    width: 100%;
   }
 `;
 const LowerContainer = styled.div<{ display: boolean }>`

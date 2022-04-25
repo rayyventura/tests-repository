@@ -19,4 +19,10 @@ const Container = styled.header`
   height: 100px;
 
   margin-bottom: 80px;
+
+  @media (max-width: 700px) {
+    img {
+      width: 200px;
+    }
+  }
 `;

@@ -36,6 +36,13 @@ const LowerContainer = styled.div`
   width: 100%;
 
   margin-top: 30px;
+  @media (max-width: 700px) {
+    padding: 0 20px;
+    button {
+      width: 96px;
+      height: 28px;
+    }
+  }
 `;
 
 const Form = styled.form`
@@ -69,6 +76,9 @@ const InputField = styled.div<{ search: string }>`
 
   .icon {
     cursor: pointer;
+  }
+  @media (max-width: 464px) {
+    width: 100%;
   }
 `;
 const Input = styled.input`
