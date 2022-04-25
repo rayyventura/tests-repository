@@ -7,7 +7,7 @@ import RenderTests from "./RenderTests";
 
 export default function SearchByTeacher({ data }: any) {
   const [showTests, setShowTests] = useState(false);
-  console.log(data);
+
   return (
     <Container>
       <UpperContainer>
