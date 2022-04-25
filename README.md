@@ -24,7 +24,7 @@ A test sharing platform where students can share  tests to help each other
 
 A login & signup screen, your session is remembered when you login so you don't have to type your credentials everytime. Press the Logout button on the upper bar, right corner, drop down arrow to logout.
 
-### ```Post, access and searcht for tests```
+### ```Post, access and search for tests```
 
 Share and search for tests by Discipline name separated by terms, or also search by teacher name
 
