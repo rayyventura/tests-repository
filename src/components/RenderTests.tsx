@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 
 export default function RenderTests({ display, test, reference }: any) {
@@ -7,9 +8,14 @@ export default function RenderTests({ display, test, reference }: any) {
       {reference && test ? (
         <>
           <p className="title">{test.category.name}</p>
-          <a href={test.pdfUrl} target="_blank">
-            {test.name} ({reference})
-          </a>
+          <div className="pdfUrl">
+            <a href={test.pdfUrl} target="_blank" className="link">
+              {test.name} ({reference})
+            </a>
+            <a href={test.pdfUrl} target="_blank" className="views">
+              10 visualizações
+            </a>
+          </div>
         </>
       ) : (
         <p className="warn">
@@ -34,7 +40,19 @@ const Container = styled.div<{ display: boolean }>`
     font-size: 14px;
     margin-bottom: 5px;
   }
-  a {
+  .pdfUrl {
+    color: gray;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    &:hover .views {
+      color: #2164af;
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+  .link {
     color: #878787;
     font-size: 12px;
     font-family: "Poppins";

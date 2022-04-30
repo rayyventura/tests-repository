@@ -13,10 +13,11 @@ import {
   StyledLink,
   Title,
 } from "../../components/Form";
-import Header from "../../components/Header";
+import Logo from "../../components/Logo";
 import * as api from "../../services/api";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAlert from "../../hooks/useAlert";
 
 export default function SignUp() {
   const [hidePassword, setHidePassword] = useState(true);
@@ -27,6 +28,7 @@ export default function SignUp() {
     passwordConfirm: "",
   });
   const navigate = useNavigate();
+  const { setMessage } = useAlert();
 
   function handleChange({ target }: { target: any }) {
     setFormData({ ...formData, [target.name]: target.value });
@@ -42,11 +44,9 @@ export default function SignUp() {
   async function handleSubmit(e: any) {
     e.preventDefault();
     if (formData.password !== formData.passwordConfirm) {
-      Swal.fire({
+      setMessage({
+        type: "error",
         text: "Senha e confirmação são diferentes",
-        background: "#d66767",
-        confirmButtonColor: "#9f9adb",
-        color: "#fff",
       });
       return;
     }
@@ -55,11 +55,9 @@ export default function SignUp() {
       formData.passwordConfirm === "" ||
       formData.email === ""
     ) {
-      Swal.fire({
-        text: "Todos os dados devem estar preenchidos",
-        background: "#d66767",
-        confirmButtonColor: "#9f9adb",
-        color: "#fff",
+      setMessage({
+        type: "error",
+        text: "Todos os campos devem estar preenchidos",
       });
       return;
     }
@@ -72,12 +70,13 @@ export default function SignUp() {
   }
   return (
     <Container>
-      <Header />
+      <Logo />
       <Title> Cadastro </Title>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <UpperContainer>
           <InputField search="form">
             <Input
+              id="email"
               type="email"
               placeholder="Email"
               name="email"
@@ -88,6 +87,7 @@ export default function SignUp() {
           </InputField>
           <InputField search="form">
             <Input
+              id="password"
               type={hidePassword ? "password" : "text"}
               placeholder="Senha"
               name="password"
@@ -105,6 +105,7 @@ export default function SignUp() {
           </InputField>
           <InputField search="form">
             <Input
+              id="passwordConfirm"
               type={hidePasswordConfirm ? "password" : "text"}
               placeholder="Confirme sua senha"
               name="passwordConfirm"

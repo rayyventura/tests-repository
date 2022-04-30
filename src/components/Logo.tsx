@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../assets/logo.svg";
+import logo from "../assets/logo.svg";
 
-export default function Header() {
+export default function Logo() {
   return (
     <Container>
-      <img src={Logo} alt="RepoProvas logo" />
+      <img src={logo} alt="RepoProvas logo" />
     </Container>
   );
 }

@@ -14,11 +14,11 @@ import {
   StyledLink,
   Title,
 } from "../../components/Form";
-import Header from "../../components/Header";
+import Logo from "../../components/Logo";
 import * as api from "../../services/api";
-import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import useAlert from "../../hooks/useAlert";
 
 export default function SignIn() {
   const [hidePassword, setHidePassword] = useState(true);
@@ -28,6 +28,7 @@ export default function SignIn() {
   });
   const [loading, setLoading] = useState(false);
   const { auth, signin } = useAuth();
+  const { setMessage } = useAlert();
   const navigate = useNavigate();
   useEffect(() => {
     if (auth) {
@@ -46,12 +47,11 @@ export default function SignIn() {
   async function handleSubmit(e: any) {
     e.preventDefault();
     setLoading(true);
+    setMessage(null);
     if (formData.password === "" || formData.email === "") {
-      Swal.fire({
-        text: "Todos os dados devem estar preenchidos",
-        background: "#d66767",
-        confirmButtonColor: "#9f9adb",
-        color: "#fff",
+      setMessage({
+        type: "error",
+        text: "Todos os campos devem estar preenchidos",
       });
       return;
     }
@@ -63,23 +63,22 @@ export default function SignIn() {
     } catch (err) {
       console.log(err);
       setLoading(false);
-      Swal.fire({
-        text: "E-mail ou senha inválidos",
-        background: "#d66767",
-        confirmButtonColor: "#9f9adb",
-        color: "#fff",
+      setMessage({
+        type: "error",
+        text: "Login falhou,tente novamente!",
       });
     }
   }
 
   return (
     <Container>
-      <Header />
+      <Logo />
       <Title> Login </Title>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <UpperContainer>
           <InputField search="form">
             <Input
+              id="email"
               type="email"
               placeholder="Email"
               name="email"
@@ -90,6 +89,7 @@ export default function SignIn() {
           </InputField>
           <InputField search="form">
             <Input
+              id="password"
               type={hidePassword ? "password" : "text"}
               placeholder="Senha"
               name="password"
