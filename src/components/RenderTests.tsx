@@ -1,19 +1,27 @@
-import React from "react";
-
+import React, { useState } from "react";
+import * as api from "../services/api";
 import styled from "styled-components";
+import useAuth from "../hooks/useAuth";
 
 export default function RenderTests({ display, test, reference }: any) {
+  const { auth } = useAuth();
+  const [views, setViews] = useState(test.views);
+
+  function updateViews() {
+    setViews(views + 1);
+    api.updateViews(auth, test.id);
+  }
   return (
     <Container display={display}>
       {reference && test ? (
         <>
           <p className="title">{test.category.name}</p>
-          <div className="pdfUrl">
+          <div className="pdfUrl" onClick={() => updateViews()}>
             <a href={test.pdfUrl} target="_blank" className="link">
               {test.name} ({reference})
             </a>
             <a href={test.pdfUrl} target="_blank" className="views">
-              10 visualizações
+              {views} visualizações
             </a>
           </div>
         </>
@@ -45,8 +53,11 @@ const Container = styled.div<{ display: boolean }>`
     font-size: 14px;
     display: flex;
     gap: 20px;
-    &:hover .views {
+    a.views {
       color: #2164af;
+    }
+    &:hover .views {
+      color: #438de2ae;
       a {
         cursor: pointer;
       }

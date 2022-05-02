@@ -15,7 +15,6 @@ import {
 } from "../../components/Form";
 import Logo from "../../components/Logo";
 import * as api from "../../services/api";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAlert from "../../hooks/useAlert";
 
@@ -74,7 +73,7 @@ export default function SignUp() {
       <Title> Cadastro </Title>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <UpperContainer>
-          <InputField search="form">
+          <InputField search="form" show={false}>
             <Input
               id="email"
               type="email"
@@ -85,7 +84,7 @@ export default function SignUp() {
               value={formData.email}
             />
           </InputField>
-          <InputField search="form">
+          <InputField search="form" show={false}>
             <Input
               id="password"
               type={hidePassword ? "password" : "text"}
@@ -103,7 +102,7 @@ export default function SignUp() {
               onClick={() => toggleHidePassword()}
             />
           </InputField>
-          <InputField search="form">
+          <InputField search="form" show={false}>
             <Input
               id="passwordConfirm"
               type={hidePasswordConfirm ? "password" : "text"}
@@ -124,7 +123,10 @@ export default function SignUp() {
         </UpperContainer>
         <LowerContainer>
           <StyledLink to="/">Já possuo cadastro</StyledLink>
-          <Button type="submit"> Confirmar </Button>
+          <Button type="submit" id="submit">
+            {" "}
+            Confirmar{" "}
+          </Button>
         </LowerContainer>
       </Form>
     </Container>

@@ -76,7 +76,7 @@ export default function SignIn() {
       <Title> Login </Title>
       <Form onSubmit={(e) => handleSubmit(e)}>
         <UpperContainer>
-          <InputField search="form">
+          <InputField search="form" show={false}>
             <Input
               id="email"
               type="email"
@@ -87,7 +87,7 @@ export default function SignIn() {
               value={formData.email}
             />
           </InputField>
-          <InputField search="form">
+          <InputField search="form" show={false}>
             <Input
               id="password"
               type={hidePassword ? "password" : "text"}

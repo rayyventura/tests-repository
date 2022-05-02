@@ -55,7 +55,7 @@ const Form = styled.form`
   font-family: "Poppins", "sans-serif";
 `;
 
-const InputField = styled.div<{ search: string }>`
+const InputField = styled.div<{ search: string; show: boolean }>`
   padding: 12px;
   margin-bottom: 16px;
   width: 464px;
@@ -70,7 +70,7 @@ const InputField = styled.div<{ search: string }>`
   box-shadow: ${(props) =>
     props.search === "form" ? "0" : "0px 1px 2px rgba(0, 0, 0, 0.3)"};
 
-  display: flex;
+  display: ${(props) => (props.show ? "none" : "flex")};
   justify-content: space-between;
   align-items: center;
 

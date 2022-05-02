@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Input, InputField } from "../../components/Form";
-import { UpperContainer, HorizontalDivisor } from "./style";
+import { UpperContainer, HorizontalDivisor, Title } from "./style";
 import HeaderLogout from "../../components/HeaderLogout";
 import Icon from "react-icons-kit";
 import { androidSearch } from "react-icons-kit/ionicons/androidSearch";
@@ -11,6 +11,8 @@ import SearchByTeacher from "../../components/SearchByTeacher";
 import useAuth from "../../hooks/useAuth";
 import * as api from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { convertCompilerOptionsFromJson } from "typescript";
+import AddTest from "../../components/AddTest";
 
 export default function Home() {
   const [selectDisciplines, setSelectDisciplines] = useState(true);
@@ -28,6 +30,27 @@ export default function Home() {
     }
   }, []);
 
+  function handleChange({ target }: { target: any }) {
+    const disciplines =
+      testsDisciplines &&
+      testsDisciplines.filter((test: any) =>
+        test.disciplines[0].name
+          .toLowerCase()
+          .includes(target.value.toLowerCase())
+      );
+    const teachers =
+      testsTeachers &&
+      testsTeachers.filter((test: any) =>
+        test.name.toLowerCase().includes(target.value.toLowerCase())
+      );
+
+    setTestsDisciplines(disciplines);
+    setTestsTeachers(teachers);
+    if (target.value.length === 0) {
+      getData();
+    }
+  }
+
   async function getData() {
     const testsDisciplines = await api.getTestsByDisciplines(auth);
     const testsTeachers = await api.getTestsByTeacher(auth);
@@ -37,7 +60,7 @@ export default function Home() {
   return (
     <UpperContainer>
       <HeaderLogout />
-      <InputField search="search">
+      <InputField search="search" show={selectTeachers === selectDisciplines}>
         <Input
           type="text"
           placeholder={
@@ -47,7 +70,9 @@ export default function Home() {
               ? "Pesquise por professor"
               : "Pesquise por disciplina"
           }
+          onChange={(e) => handleChange(e)}
         />
+
         <Icon
           icon={androidSearch}
           size={28}
@@ -55,6 +80,7 @@ export default function Home() {
           className="icon"
         />
       </InputField>
+      <Title show={selectTeachers === selectDisciplines}>Adicionar</Title>
       <HorizontalDivisor />
       <NavBar
         selectDisciplines={selectDisciplines}
@@ -66,11 +92,13 @@ export default function Home() {
       />
       {selectDisciplines &&
         testsDisciplines &&
+        testsDisciplines[0] &&
         testsDisciplines.map((test: any) => {
           return <SearchByDiscipline data={test} key={test.id} />;
         })}
       {selectTeachers &&
         testsTeachers &&
+        testsTeachers[0] &&
         testsTeachers.map((test: any) => {
           return <SearchByTeacher data={test} key={test.id} />;
         })}
@@ -85,6 +113,7 @@ export default function Home() {
           />
         </>
       )}
+      {selectAdd && <AddTest />}
     </UpperContainer>
   );
 }
