@@ -7,8 +7,9 @@ import { useState, useEffect } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import * as api from "../services/api";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
-export default function AddTest() {
+export default function AddTest({ setSelectAdd }: any) {
   const [formData, setFormData] = useState<any>({
     title: "",
     pdfUrl: "",
@@ -29,7 +30,6 @@ export default function AddTest() {
   }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
     const test = {
       title: formData.title,
       pdfUrl: formData.pdfUrl,
