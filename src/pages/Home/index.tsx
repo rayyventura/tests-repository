@@ -113,7 +113,7 @@ export default function Home() {
           />
         </>
       )}
-      {selectAdd && <AddTest />}
+      {selectAdd && <AddTest setSelectAdd={setSelectAdd}/>}
     </UpperContainer>
   );
 }
