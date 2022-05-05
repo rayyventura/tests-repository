@@ -58,7 +58,7 @@ npm i
 ```
 
 The app will run locally and you must configure a ```.env``` file with a port of your choosing. The default one is 5000.
-## Running
+## :gear:Running
 ```bash
 #you can run the development build with
 npm start
